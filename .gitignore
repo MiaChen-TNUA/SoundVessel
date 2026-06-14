@@ -1,0 +1,6 @@
+# Exclude the large uncompressed source video (217MB)
+visualizedCirle02.mov
+
+# OS metadata
+.DS_Store
+Thumbs.db

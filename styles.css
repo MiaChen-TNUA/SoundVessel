@@ -1,0 +1,111 @@
+/* Premium Minimal Style */
+:root {
+    --bg-color: #050508;
+    --accent-glow: rgba(123, 44, 191, 0.4);
+    --transition-speed: 0.3s;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Ambient Glow behind the video */
+.ambient-glow {
+    position: absolute;
+    width: 80vmin;
+    height: 80vmin;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--accent-glow) 0%, rgba(5, 5, 8, 0) 70%);
+    filter: blur(50px);
+    z-index: 0;
+    pointer-events: none;
+    animation: pulse 8s infinite alternate ease-in-out;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(0.9);
+        opacity: 0.6;
+    }
+    100% {
+        transform: scale(1.1);
+        opacity: 0.9;
+    }
+}
+
+/* Responsive Video Container - Adapts to screen size preserving 1:1 aspect ratio */
+.video-wrapper {
+    position: relative;
+    width: 85vmin;
+    height: 85vmin;
+    max-width: 960px;
+    max-height: 960px;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background-color: #000;
+    z-index: 1;
+    transition: transform var(--transition-speed) ease;
+}
+
+.video-wrapper:hover {
+    transform: scale(1.01);
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Floating Sound Toggle Button */
+.sound-toggle {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(15, 15, 20, 0.6);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: rgba(255, 255, 255, 0.8);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all var(--transition-speed) ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.sound-toggle:hover {
+    background: rgba(255, 255, 255, 0.9);
+    color: #000;
+    border-color: #fff;
+    transform: scale(1.05);
+}
+
+.sound-toggle:active {
+    transform: scale(0.95);
+}
+
+.hidden {
+    display: none !important;
+}
