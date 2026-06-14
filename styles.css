@@ -56,7 +56,6 @@ body {
     border-radius: 24px;
     overflow: hidden;
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
-    border: 1px solid rgba(255, 255, 255, 0.08);
     background-color: #000;
     z-index: 1;
     transition: transform var(--transition-speed) ease;
@@ -64,7 +63,6 @@ body {
 
 .video-wrapper:hover {
     transform: scale(1.01);
-    border-color: rgba(255, 255, 255, 0.15);
 }
 
 video {
@@ -74,11 +72,11 @@ video {
     display: block;
 }
 
-/* Floating Sound Toggle Button */
+/* Floating Sound Toggle Button at page bottom-right */
 .sound-toggle {
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
     background: rgba(15, 15, 20, 0.6);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
@@ -93,6 +91,7 @@ video {
     cursor: pointer;
     transition: all var(--transition-speed) ease;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    z-index: 10;
 }
 
 .sound-toggle:hover {
